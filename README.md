@@ -1,10 +1,10 @@
-#Task Scheduling System
+# Task Scheduling System
 
 ### A Python-Based Task Allocation and Scheduling System Using Round Robin Algorithm
 
 ## 📌 Project Overview
 
-Distributed Task Scheduling System is a Python-based mini project developed to manage and distribute multiple tasks among available workers efficiently.
+Task Scheduling System is a Python-based mini project developed to manage and distribute multiple tasks among available workers efficiently.
 
 The system uses the **Round Robin Scheduling Algorithm** to assign tasks to multiple worker threads in a sequential and balanced manner.
 
@@ -56,7 +56,7 @@ It provides a web-based dashboard where users can submit tasks, monitor task exe
 
 ## 🔀 System Flowchart
 
-The following flowchart illustrates the overall working process of the Distributed Task Scheduling System.
+The following flowchart illustrates the overall working process of the Task Scheduling System.
 
 ```mermaid
 flowchart TD
@@ -176,4 +176,4 @@ The dashboard allows users to:
 
 ## 📚 Conclusion
 
-The Distributed Task Scheduling System demonstrates the practical implementation of task scheduling and workload distribution using Python. By combining Flask, SQLite, multiple worker threads, and the Round Robin algorithm, the project provides an understanding of how tasks can be allocated and monitored efficiently in a distributed computing environment.
+The Task Scheduling System demonstrates the practical implementation of task scheduling and workload distribution using Python. By combining Flask, SQLite, multiple worker threads, and the Round Robin algorithm, the project provides an understanding of how tasks can be allocated and monitored efficiently in a distributed computing environment.
