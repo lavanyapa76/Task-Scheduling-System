@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Task Scheduling System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta http-equiv="refresh" content="4">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="tag">DISTRIBUTED COMPUTING MINI PROJECT</p>
+            <h1>Task Scheduling System</h1>
+            <p class="subtitle">Submit tasks and monitor how worker processes handle them.</p>
+        </header>
+
+        <section class="panel">
+            <h2>Submit a New Task</h2>
+            <form action="{{ url_for('add') }}" method="post">
+                <input type="text" name="task_name" placeholder="Enter task name..." required>
+                <button type="submit">Add Task</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}<p class="message">{{ message }}</p>{% endfor %}
+              {% endif %}
+            {% endwith %}
+        </section>
+
+        <section class="panel">
+            <h2>Worker Status</h2>
+            <div class="workers">
+                {% for worker in workers %}
+                <div class="worker">
+                    <strong>{{ worker[0] }}</strong>
+                    <span class="{{ 'busy' if worker[1] == 'Busy' else 'idle' }}">{{ worker[1] }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Task Details</h2>
+            <div class="table-wrap">
+            <table>
+                <thead><tr><th>ID</th><th>Task</th><th>Status</th><th>Assigned Worker</th><th>Result</th></tr></thead>
+                <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task[0] }}</td><td>{{ task[1] }}</td>
+                    <td><span class="status">{{ task[2] }}</span></td>
+                    <td>{{ task[3] }}</td><td>{{ task[4] }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="5" class="empty">No tasks submitted yet.</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <p class="note">This demo simulates three workers on one computer. The page refreshes automatically.</p>
+        </section>
+    </main>
+</body>
+</html>
